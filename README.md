@@ -76,3 +76,18 @@ uv add -r deps/zephyr/scripts/requirements.txt --dev
 # See all the commands to run via poe
 uv run poe
 ```
+
+### Build firmware 
+
+Default board is `esp32_devkitc/esp32/procpu`
+
+```bash
+uv run poe build-app -b nrf52dk/nrf52832 -p always
+uv run poe build-app -b esp32_devkitc/esp32/procpu -p always
+```
+
+### Flash
+
+```bash
+uv run poe flash-app
+```
