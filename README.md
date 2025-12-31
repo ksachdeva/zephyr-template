@@ -7,6 +7,10 @@ This is a template for Zephyr firmware app development that makes use of
 
 You would generally run commands via `uv` and `poe`
 
+It is also a multi-project setup both for zephyr apps as well as other tools (e.g. python packages, libraries)
+that could sit next to your firmware app(s).
+
+
 ```bash
 # example when directly running west command
 uv run west
