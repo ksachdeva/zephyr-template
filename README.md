@@ -33,9 +33,11 @@ The configured zephyr version in the manifest is `v4.3.0`
 uv sync
 ```
 
-## Not changing v4.3.0
+## Not changing v4.3.0 (the version set in west.yml of this repo)
 
 In this mode, all you have to do is to issue following commands
+
+Below steps are needed once or when you first clone the repo.
 
 ```bash
 # do west update
@@ -49,29 +51,35 @@ uv run west sdk install
 
 ## Switching to another version of Zephyr
 
-Make a change in `west.yml` file
+Below steps are needed rarely (as in when you modify the manifest [west.yml]) or when you first clone the repo.
+
+### Step 1
 
 ```bash
-# Step 1
 # delete uv.lock
 rm -rf uv.lock 
 # delete deps
 rm -rf deps
 ```
 
+### Step 2
+
+Make a change in `west.yml` file for example change zephyr version and/or include modules that you need.
+
 ```bash
-# Step 2
 uv run west update
 ```
 
+### Step 3
+
 ```bash
-# Step 3
 # this would install the SDK corresponding to your version of zephyr 
 uv run west sdk install
 ```
 
+### Step 4
+
 ```bash
-# Step 4
 # This should update the dependencies (and uv.lock) as per your version of zephyr
 uv add -r deps/zephyr/scripts/requirements.txt --dev
 ```
