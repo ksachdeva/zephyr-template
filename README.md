@@ -10,12 +10,18 @@ You would generally run commands via `uv` and `poe`
 It is also a multi-project setup both for zephyr apps as well as other tools (e.g. python packages, libraries)
 that could sit next to your firmware app(s).
 
+The template has the necessary board overlays for the app (Blinky) -
+
+- ESP32 DevkitC V1
+- nrf52832 DK
+
+> Note - Both of these are quite old boards but that is what I have to test with at the moment
 
 ```bash
 # example when directly running west command
 uv run west
 
-# example when running west and/or other apps via poe
+# example when running some pre-configured commands/tasks via poe
 uv run poe build-app
 ```
 
