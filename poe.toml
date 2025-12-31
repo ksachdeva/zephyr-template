@@ -11,8 +11,4 @@ args = [
 
 [tool.poe.tasks.flash-app]
 help = "Flash the app using west ..."
-sequence = [
-    "build-app",
-    { cmd = "west flash"}
-]
-
+cmd = "west flash"

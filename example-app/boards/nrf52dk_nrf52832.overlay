@@ -1,0 +1,9 @@
+/ {
+     aliases {
+             led0 = &led0;
+     };
+};
+
+&led0 {
+     status = "okay";
+};
