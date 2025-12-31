@@ -33,6 +33,7 @@ int main(void) {
     }
 
     led_state = !led_state;
+    printf("LED is now: %s\n", led_state ? "ON" : "OFF");
     
     k_msleep(1000);
   }

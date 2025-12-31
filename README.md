@@ -10,10 +10,12 @@ You would generally run commands via `uv` and `poe`
 It is also a multi-project setup both for zephyr apps as well as other tools (e.g. python packages, libraries)
 that could sit next to your firmware app(s).
 
-The template has the necessary board overlays for the app (Blinky) -
+The template has few board overlays for the app (Blinky) -
 
 - ESP32 DevkitC V1
 - nrf52832 DK
+- native_sim (Linux Only)
+- qemu_cortex_m3 (QEMU emulator on macOS)
 
 > Note - Both of these are quite old boards but that is what I have to test with at the moment
 
@@ -98,6 +100,8 @@ Default board is `esp32_devkitc/esp32/procpu`
 ```bash
 uv run poe build-app -b nrf52dk/nrf52832 -p always
 uv run poe build-app -b esp32_devkitc/esp32/procpu -p always
+uv run poe build-app -b native_sim -p always
+uv run poe build-app -b qemu_cortex_m3 -p always
 ```
 
 ### Flash
