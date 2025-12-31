@@ -2,8 +2,8 @@
 
 This is a template for Zephyr firmware app development that makes use of 
 
-- uv 
-- poethepoet
+- uv [(https://docs.astral.sh/uv/)](https://docs.astral.sh/uv/)
+- poethepoet [(https://poethepoet.natn.io/index.html)](https://poethepoet.natn.io/index.html)
 
 You would generally run commands via `uv` and `poe`
 
