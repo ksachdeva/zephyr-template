@@ -1,9 +1,6 @@
 [tool.poe.tasks]
 fmt = "ruff format"
 
-[tool.poe.tasks.west-update]
-cmd = "west update"
-
 [tool.poe.tasks.build-app]
 help = "Build the app using west ..."
 cmd = "west build -p ${pristine} -b ${board} example-app"

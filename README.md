@@ -33,7 +33,12 @@ In this mode, all you have to do is to issue following commands
 
 ```bash
 # do west update
-uv run poe west-update
+uv run west update
+```
+
+```bash
+# this would install the SDK corresponding to v4.3.0
+uv run west sdk install
 ```
 
 ## Switching to another version of Zephyr
@@ -50,11 +55,17 @@ rm -rf deps
 
 ```bash
 # Step 2
-uv run poe west-update
+uv run west update
 ```
 
 ```bash
 # Step 3
+# this would install the SDK corresponding to your version of zephyr 
+uv run west sdk install
+```
+
+```bash
+# Step 4
 # This should update the dependencies (and uv.lock) as per your version of zephyr
 uv add -r deps/zephyr/scripts/requirements.txt --dev
 ```
