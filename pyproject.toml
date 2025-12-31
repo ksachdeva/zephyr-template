@@ -1,0 +1,103 @@
+[dependency-groups]
+dev = [
+    "anytree>=2.13.0",
+    "canopen>=2.4.1",
+    "cbor>=1.0.0",
+    "clang-format>=15.0.0",
+    "colorama>=0.4.6",
+    "coverage>=7.13.1",
+    "esptool>=5.1.0",
+    "gcovr>=6.0",
+    "gitlint-core>=0.19.1",
+    "gitpython>=3.1.41",
+    "graphviz>=0.21",
+    "intelhex>=2.3.0",
+    "jsonschema>=4.25.1",
+    "junit2html>=31.0.5",
+    "junitparser>=4.0.1",
+    "lpc-checksum>=3.0.0",
+    "lxml>=5.3.0",
+    "mypy>=1.17.1",
+    "natsort>=8.4.0",
+    "numpy>=1.26.4",
+    "opencv-python>=4.9.0.80",
+    "packaging>=25.0",
+    "patool>=2.0.0",
+    "pillow>=10.3.0",
+    "plotly>=6.5.0",
+    "ply>=3.10",
+    "poethepoet>=0.37.0",
+    "pre-commit>=4.3.0",
+    "psutil>=5.6.6",
+    "pyelftools>=0.29",
+    "pygithub>=2.8.1",
+    "pykwalify>=1.8.0",
+    "pylink-square>=1.7.0",
+    "pylint>=3",
+    "pyocd>=0.35.0",
+    "pyserial>=3.5",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "pytest-env>=1.1.5",
+    "python-can>=4.3.0",
+    "python-dotenv>=1.2.1",
+    "python-magic>=0.4.27 ; sys_platform != 'win32'",
+    "python-magic-bin>=0.4.14 ; sys_platform == 'win32'",
+    "pyyaml>=6.0",
+    "requests>=2.32.4",
+    "reuse>=6.2.0",
+    "ruff==0.14.2",
+    "semver>=3.0.4",
+    "spdx-tools>=0.8.3",
+    "sphinx-lint>=1.0.2",
+    "spsdk>=3.0.0",
+    "tabulate>=0.9.0",
+    "tqdm>=4.67.1",
+    "unidiff>=0.7.5",
+    "vermin>=1.8.0",
+    "west>=0.14.0",
+    "windows-curses>=2.4.1 ; sys_platform == 'win32'",
+    "yamllint>=1.37.1",
+]
+
+[tool.ruff]
+line-length = 120
+fix = true
+target-version = "py313"
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "Q", "I", "ASYNC", "T20"]
+ignore = ["F401", "E501", "T201"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"unittest".msg = "Use `pytest` instead."
+
+[tool.mypy]
+strict = true
+python_version = "3.13"
+ignore_missing_imports = true
+
+# from https://blog.wolt.com/engineering/2021/09/30/professional-grade-mypy-configuration/
+disallow_untyped_defs = true
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = true
+show_error_codes = true
+warn_unused_ignores = false
+
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+disallow_any_unimported = false
+
+[tool.pyright]
+include = ["src", "tests", "samples"]
+# typeCheckingMode = "strict"
+reportUnnecessaryIsInstance = false
+reportMissingTypeStubs = false
+
+[tool.poe]
+include = "poe.toml"

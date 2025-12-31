@@ -1,0 +1,21 @@
+[tool.poe.tasks]
+fmt = "ruff format"
+
+[tool.poe.tasks.west-update]
+cmd = "west update"
+
+[tool.poe.tasks.build-app]
+help = "Build the app using west ..."
+cmd = "west build -p ${pristine} -b ${board} example-app"
+args = [
+    { name = "board", options = ["-b", "--board"], default = "esp32_devkitc/esp32/procpu"},
+    { name = "pristine", options = ["-p", "--pristine"], default = "auto"}
+]
+
+[tool.poe.tasks.flash-app]
+help = "Flash the app using west ..."
+sequence = [
+    "build-app",
+    { cmd = "west flash"}
+]
+
