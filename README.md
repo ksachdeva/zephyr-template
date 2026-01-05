@@ -1,6 +1,6 @@
 # zephyr-template
 
-This is a template for Zephyr firmware app development that makes use of 
+This is a template for Zephyr firmware app development that makes use of
 
 - uv [(https://docs.astral.sh/uv/)](https://docs.astral.sh/uv/)
 - poethepoet [(https://poethepoet.natn.io/index.html)](https://poethepoet.natn.io/index.html)
@@ -19,20 +19,26 @@ The template has few board overlays for the app (Blinky) -
 
 > Note - Both of these are quite old boards but that is what I have to test with at the moment
 
+The configured zephyr version in the manifest is `v4.3.0`
+
+```bash
+# setup your virtualenv
+uv sync
+```
+
+```bash
+# install pre-commit hooks
+uv run pre-commit install
+```
+
+### Example / Conventions
+
 ```bash
 # example when directly running west command
 uv run west
 
 # example when running some pre-configured commands/tasks via poe
 uv run poe build-app
-```
-
-The configured zephyr version in the manifest is `v4.3.0`
-
-```bash
-# Step 1
-# setup your virtualenv
-uv sync
 ```
 
 ## Not changing v4.3.0 (the version set in west.yml of this repo)
@@ -59,7 +65,7 @@ Below steps are needed rarely (as in when you modify the manifest [west.yml]) or
 
 ```bash
 # delete uv.lock
-rm -rf uv.lock 
+rm -rf uv.lock
 # delete deps
 rm -rf deps
 ```
@@ -75,7 +81,7 @@ uv run west update
 ### Step 3
 
 ```bash
-# this would install the SDK corresponding to your version of zephyr 
+# this would install the SDK corresponding to your version of zephyr
 uv run west sdk install
 ```
 
@@ -93,7 +99,7 @@ uv add -r deps/zephyr/scripts/requirements.txt --dev
 uv run poe
 ```
 
-### Build firmware 
+### Build firmware
 
 Default board is `esp32_devkitc/esp32/procpu`
 
