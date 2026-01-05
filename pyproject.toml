@@ -1,3 +1,8 @@
+[project]
+name = "zephyr-template"
+version = "0.0.1"
+requires-python = ">=3.13,<4.0"
+
 [dependency-groups]
 dev = [
     "anytree>=2.13.0",
@@ -59,6 +64,8 @@ dev = [
     "windows-curses>=2.4.1 ; sys_platform == 'win32'",
     "yamllint>=1.37.1",
 ]
+
+
 
 [tool.ruff]
 line-length = 120
