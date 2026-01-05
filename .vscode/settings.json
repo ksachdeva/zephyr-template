@@ -1,0 +1,27 @@
+{
+    "cmake.configureOnOpen": false,
+    "devicetree.zephyr": "${workspaceFolder}/deps/zephyr",
+    "C_Cpp.default.compileCommands": [
+        "${workspaceFolder}/build/compile_commands.json"
+    ],
+    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/deps/zephyr/include",      
+        "${workspaceFolder}/build/zephyr/include/generated",  
+    ],
+    "[c]": {
+        "editor.formatOnSave": true,        
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[cpp]": {
+        "editor.formatOnSave": true,        
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[python]": {
+          "editor.tabSize": 4,
+          "editor.insertSpaces": true,
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "charliermarsh.ruff",                    
+        },
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",    
+}
