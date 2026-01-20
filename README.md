@@ -104,14 +104,14 @@ uv run poe
 Default board is `esp32_devkitc/esp32/procpu`
 
 ```bash
-uv run poe build-app -b nrf52dk/nrf52832 -p always
-uv run poe build-app -b esp32_devkitc/esp32/procpu -p always
-uv run poe build-app -b native_sim -p always
-uv run poe build-app -b qemu_cortex_m3 -p always
+uv run west build -b nrf52dk/nrf52832 -p always example-app
+uv run west build -b esp32_devkitc/esp32/procpu -p always example-app
+uv run west build -b native_sim -p always example-app
+uv run west build -b qemu_cortex_m3 -p always example-app
 ```
 
 ### Flash
 
 ```bash
-uv run poe flash-app
+uv run west flash
 ```
