@@ -63,6 +63,7 @@ dev = [
     "west>=0.14.0",
     "windows-curses>=2.4.1 ; sys_platform == 'win32'",
     "yamllint>=1.37.1",
+    "zephyr-kconfig>=0.2.0",
 ]
 
 
