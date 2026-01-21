@@ -99,9 +99,17 @@ uv add -r deps/zephyr/scripts/requirements.txt --dev
 uv run poe
 ```
 
-### Build firmware
+## VSCode workspace
+
+The repo makes use of vscode workspace.
+
+All the projects (`example-app` here) has settings.json that points to the generated header during it's build.
+
+## Build firmware
 
 Default board is `esp32_devkitc/esp32/procpu`
+
+Note the usage of `--build-dir`. This would help isolate the build for various projects within the same repository.
 
 ```bash
 uv run west build -b nrf52dk/nrf52832 -p always --build-dir builds/example-app example-app
@@ -110,13 +118,13 @@ uv run west build -b native_sim -p always --build-dir builds/example-app example
 uv run west build -b qemu_cortex_m3 -p always --build-dir builds/example-app example-app
 ```
 
-### Flash
+## Flash
 
 ```bash
 uv run west flash --build-dir builds/example-app
 ```
 
-### Monitor (for esp32)
+## Monitor (for esp32)
 
 ```bash
 # cd to build directory
