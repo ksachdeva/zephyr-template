@@ -1,0 +1,59 @@
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "repo-root"
+    },
+    {
+      "path": "builds"
+    },
+    {
+      "path": "deps",
+      "name": "zephyr"
+    },
+    {
+      "path": "example-app"
+    }
+  ],
+  "settings": {
+    "cmake.configureOnOpen": false,
+    "git.autoRepositoryDetection": true,
+    "git.enabled": true,
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/*.pyc": true,
+      "**/.DS_Store": true
+    },
+    "C_Cpp.clang_format_style": "file",
+    "[c]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[cpp]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[python]": {
+      "editor.tabSize": 4,
+      "editor.insertSpaces": true,
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "charliermarsh.ruff",
+    },
+    "python.defaultInterpreterPath": "${workspaceFolder:repo-root}/.venv/bin/python",
+    "devicetree.cwd": "${workspaceFolder:deps}",
+    "devicetree.defaultIncludePaths": [
+      "./zephyr/dts",
+      "./zephyr/dts/arm",
+      "./zephyr/dts/arm64/",
+      "./zephyr/dts/riscv",
+      "./zephyr/dts/common",
+      "./zephyr/dts/vendor",
+      "./zephyr/include",
+      "./zephyr/dts/xtensa"
+    ],
+    "devicetree.defaultBindingType": "Zephyr",
+    "devicetree.defaultZephyrBindings": [
+      "./zephyr/dts/bindings"
+    ]
+  }
+}

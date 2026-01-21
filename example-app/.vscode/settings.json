@@ -1,0 +1,9 @@
+{
+    "C_Cpp.default.compileCommands": [
+        "${workspaceFolder:builds}/example-app/compile_commands.json"
+    ],
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder:deps}/zephyr/include",
+        "${workspaceFolder:builds}/example-app/zephyr/include/generated",
+    ]
+}

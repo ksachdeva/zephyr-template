@@ -104,14 +104,22 @@ uv run poe
 Default board is `esp32_devkitc/esp32/procpu`
 
 ```bash
-uv run west build -b nrf52dk/nrf52832 -p always example-app
-uv run west build -b esp32_devkitc/esp32/procpu -p always example-app
-uv run west build -b native_sim -p always example-app
-uv run west build -b qemu_cortex_m3 -p always example-app
+uv run west build -b nrf52dk/nrf52832 -p always --build-dir builds/example-app example-app
+uv run west build -b esp32_devkitc/esp32/procpu -p always --build-dir builds/example-app example-app
+uv run west build -b native_sim -p always --build-dir builds/example-app example-app
+uv run west build -b qemu_cortex_m3 -p always --build-dir builds/example-app example-app
 ```
 
 ### Flash
 
 ```bash
-uv run west flash
+uv run west flash --build-dir builds/example-app
+```
+
+### Monitor (for esp32)
+
+```bash
+# cd to build directory
+cd builds/example-app
+uv run west espressif monitor
 ```
