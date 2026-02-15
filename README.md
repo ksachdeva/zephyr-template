@@ -38,7 +38,7 @@ uv run pre-commit install
 uv run west
 
 # example when running some pre-configured commands/tasks via poe
-uv run poe build-app
+uv run poe <task>
 ```
 
 ## Not changing v4.3.0 (the version set in west.yml of this repo)
@@ -103,13 +103,18 @@ uv run poe
 
 The repo makes use of vscode workspace.
 
-All the projects (`example-app` here) has settings.json that points to the generated header during it's build.
+All the projects (`example-app` here) have settings.json that points to the generated header during it's build.
 
 ## Build firmware
 
 Default board is `esp32_devkitc/esp32/procpu`
 
 Note the usage of `--build-dir`. This would help isolate the build for various projects within the same repository.
+
+```bash
+# pattern
+uv run west build -b <BOARD_NAME> -p <BUILD_TYPE> --build-dir builds/<app-name> <app-name>
+```
 
 ```bash
 uv run west build -b nrf52dk/nrf52832 -p always --build-dir builds/example-app example-app
@@ -127,7 +132,6 @@ uv run west flash --build-dir builds/example-app
 ## Monitor (for esp32)
 
 ```bash
-# cd to build directory
-cd builds/example-app
-uv run west espressif monitor
+# uv --directory will automatically run the command from builds/example-app
+uv --directory builds/example-app run west espressif monitor
 ```
