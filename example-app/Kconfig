@@ -1,0 +1,15 @@
+menu "Example App Config"
+
+module = EXAMPLE_APP
+module-str = EXAMPLE_APP
+source "subsys/logging/Kconfig.template.log_config"
+
+config EXAMPLE_APP_SLEEP
+    int "seconds to sleep between LED ON-OFF"
+    default 2
+    help
+        Seconds to sleep between LED ON-OFF
+
+endmenu
+
+source "Kconfig.zephyr"

@@ -3,7 +3,7 @@
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 
-LOG_MODULE_REGISTER(main);
+LOG_MODULE_REGISTER(main, CONFIG_EXAMPLE_APP_LOG_LEVEL);
 
 #define LED0_NODE DT_ALIAS(led0)
 
@@ -36,7 +36,7 @@ int main(void)
 		led_state = !led_state;
 		printf("LED is now: %s\n", led_state ? "ON" : "OFF");
 
-		k_msleep(1000);
+		k_sleep(K_SECONDS(CONFIG_EXAMPLE_APP_SLEEP));
 	}
 	return 0;
 }
