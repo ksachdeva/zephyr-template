@@ -1,2 +1,23 @@
+[tool.poe]
+envfile = "${POE_GIT_DIR}/.env"
+
 [tool.poe.tasks]
 fmt = "ruff format"
+
+[tool.poe.tasks.build-project]
+cmd = "west build -b ${MY_BOARD} -p always --build-dir builds/${proj} ${proj}"
+args = [
+    { name = "proj", default="example-app", help = "Specify the project to build (e.g. example-app etc)" }
+]
+
+[tool.poe.tasks.flash]
+cmd = "west flash --build-dir builds/${proj}"
+args = [
+    { name = "proj", default="example-app", help = "Specify the project to flash (e.g. example-app etc)" }
+]
+
+[tool.poe.tasks.qemu-run]
+cmd = "west build --build-dir builds/${proj} -t run"
+args = [
+    { name = "proj", default="example-app", help = "Specify the project to run (e.g. example-app etc)" }
+]

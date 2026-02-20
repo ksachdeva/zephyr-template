@@ -107,7 +107,7 @@ All the projects (`example-app` here) have settings.json that points to the gene
 
 ## Build firmware
 
-Default board is `esp32_devkitc/esp32/procpu`
+### Directly using `west` commands
 
 Note the usage of `--build-dir`. This would help isolate the build for various projects within the same repository.
 
@@ -123,10 +123,32 @@ uv run west build -b native_sim -p always --build-dir builds/example-app example
 uv run west build -b qemu_cortex_m3 -p always --build-dir builds/example-app example-app
 ```
 
+### Using `poe` tasks
+
+Make sure to copy `.env.example` to `.env` and change your BOARD
+
+```bash
+cp .env.example .env
+```
+
+```bash
+# The board is picked from .env file
+# See poe.toml
+uv run poe build-project --proj example-app
+```
+
 ## Flash
+
+### Directly using `west` commands
 
 ```bash
 uv run west flash --build-dir builds/example-app
+```
+
+### Using `poe` tasks
+
+```bash
+uv run poe flash --proj example-app
 ```
 
 ## Monitor (for esp32)
