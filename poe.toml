@@ -21,3 +21,23 @@ cmd = "west build --build-dir builds/${proj} -t run"
 args = [
     { name = "proj", default="example-app", help = "Specify the project to run (e.g. example-app etc)" }
 ]
+
+[tool.poe.tasks.agent-build-app]
+shell = """
+set -e
+mkdir -p logs
+TAIL_S="${TAIL_S:-5}"
+TAIL_F="${TAIL_F:-50}"
+APP="example-app"
+if uv run west build -b ${MY_BOARD} -p always --build-dir builds/${APP} ${APP} > logs/${APP}-build.log 2>&1; then
+    echo "✓ Build succeeded"
+    tail -$TAIL_S logs/${APP}-build.log
+    exit 0
+else
+    EXIT_CODE=$?
+    echo "✗ Build failed (exit code: $EXIT_CODE)"
+    tail -$TAIL_F logs/${APP}-build.log
+    exit $EXIT_CODE
+fi
+"""
+help = "Build Zephyr app. Usage: [TAIL_S=<lines>] [TAIL_F=<lines>] uv run poe agent-build-app"

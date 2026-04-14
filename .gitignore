@@ -213,3 +213,5 @@ deps/
 
 .venv/
 builds
+twister-out
+twister-out.*
